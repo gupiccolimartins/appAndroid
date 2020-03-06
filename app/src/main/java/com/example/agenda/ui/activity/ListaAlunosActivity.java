@@ -38,10 +38,8 @@ public class ListaAlunosActivity extends AppCompatActivity {
         setTitle(TITULO_APPBAR);
         configuraFabNovoAluno();
         configuraLista();
-        for (int i = 0; i < 10; i++) {
-            dao.salva(new Aluno("Gustavo", "3881-2931", "gpiccolimartins@gmail.com"));
-            dao.salva(new Aluno("Renata Ingrata", "3881-3325", "renata@gmail.com"));
-        }
+        dao.salva(new Aluno("Gustavo", "3881-2931", "gpiccolimartins@gmail.com"));
+        dao.salva(new Aluno("Renata Ingrata", "3881-3325", "renata@gmail.com"));
     }
 
     @Override
@@ -54,7 +52,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
 
         int itemId = item.getItemId();
-        if(itemId == R.id.activity_lista_alunos_menu_remover) {
+        if (itemId == R.id.activity_lista_alunos_menu_remover) {
             AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
             Aluno alunoEscolhido = adapter.getItem(menuInfo.position);
             remove(alunoEscolhido);
